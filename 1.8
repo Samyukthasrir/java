@@ -1,0 +1,32 @@
+def calculate_grade(marks):
+    total = sum(marks)
+    aggregate = total / len(marks)
+
+    print("Total =", total)
+    print("Aggregate =", aggregate)
+
+    if aggregate > 75:
+        print("Grade: Distinction")
+    elif 60 <= aggregate < 75:
+        print("Grade: First Division")
+    elif 50 <= aggregate < 60:
+        print("Grade: Second Division")
+    elif 40 <= aggregate < 50:
+        print("Grade: Third Division")
+    else:
+        print("Grade: Fail")
+
+
+def main():
+    subjects = ["Python", "C Programming", "Mathematics", "Physics"]
+    marks = []
+
+    for subject in subjects:
+        mark = int(input(f"Enter the marks in {subject}: "))
+        marks.append(mark)
+
+    calculate_grade(marks)
+
+
+if __name__ == "__main__":
+    main()
