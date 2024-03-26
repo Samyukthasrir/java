@@ -1,0 +1,84 @@
+import java.util.Scanner;
+class Account {
+    protected String accountNumber;
+    protected double balance;
+    public Account(String accountNumber) {
+        this.accountNumber = accountNumber;
+        this.balance = 0.0;
+    }
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposit successful.");
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawal successful.");
+        } else {
+            System.out.println("Invalid withdrawal amount or insufficient balance.");
+        }
+    }
+    public double checkBalance() {
+        return balance;
+    }
+}
+class SavingsAccount extends Account {
+    // Constructor
+    public SavingsAccount(String accountNumber) {
+        super(accountNumber);
+    }
+    public void addInterest(double rate) {
+        balance += balance * (rate / 100.0);
+        System.out.println("Interest added.");
+    }
+}
+class CurrentAccount extends Account {
+    // Constructor
+    public CurrentAccount(String accountNumber) {
+        super(accountNumber);
+    }
+}
+
+// FixedDepositAccount class representing a fixed deposit account
+class FixedDepositAccount extends Account {
+    private double interestRate;
+
+    // Constructor
+    public FixedDepositAccount(String accountNumber, double interestRate) {
+        super(accountNumber);
+        this.interestRate = interestRate;
+    }
+
+    // Method to add interest to the account balance
+    public void addInterest() {
+        balance += balance * (interestRate / 100.0);
+        System.out.println("Interest added.");
+    }
+}
+
+// Main class for testing
+public class BankAccountManagementSystem {
+    public static void main(String[] args) {
+        // Creating accounts
+        SavingsAccount savingsAccount = new SavingsAccount("SA001");
+        CurrentAccount currentAccount = new CurrentAccount("CA001");
+        FixedDepositAccount fixedDepositAccount = new FixedDepositAccount("FDA001", 5.0);
+
+        // Performing transactions
+        savingsAccount.deposit(5000);
+        savingsAccount.addInterest(2.5);
+        System.out.println("Savings Account Balance: " + savingsAccount.checkBalance());
+
+        currentAccount.deposit(3000);
+        currentAccount.withdraw(2000);
+        System.out.println("Current Account Balance: " + currentAccount.checkBalance());
+
+        fixedDepositAccount.deposit(10000);
+        fixedDepositAccount.addInterest();
+        System.out.println("Fixed Deposit Account Balance: " + fixedDepositAccount.checkBalance());
+    }
+}
