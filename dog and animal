@@ -1,0 +1,29 @@
+// Animal superclass
+class Animal {
+    // Method in the superclass
+    public void eat() {
+        System.out.println("The animal is eating.");
+    }
+}
+
+// Dog subclass inheriting from Animal
+class Dog extends Animal {
+    // Method in the subclass
+    public void bark() {
+        System.out.println("The dog is barking.");
+    }
+}
+
+// Main class to demonstrate the classes
+public class AnimalDogExample {
+    public static void main(String[] args) {
+        // Creating an instance of the Dog class
+        Dog dog = new Dog();
+        
+        // Calling methods inherited from Animal class
+        dog.eat(); // Output: The animal is eating.
+        
+        // Calling method specific to Dog class
+        dog.bark(); // Output: The dog is barking.
+    }
+}
