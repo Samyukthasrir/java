@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class AttendanceChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the number of classes held: ");
+        int totalClasses = scanner.nextInt();
+
+        System.out.println("Enter the number of classes attended: ");
+        int attendedClasses = scanner.nextInt();
+
+        double attendancePercentage = (double) attendedClasses / totalClasses * 100;
+
+        System.out.println("Percentage of classes attended: " + attendancePercentage + "%");
+
+        if (attendancePercentage >= 75) {
+            System.out.println("Student is allowed to sit in the exam.");
+        } else {
+            System.out.println("Student is not allowed to sit in the exam.");
+        }
+
+        scanner.close();
+    }
+}
