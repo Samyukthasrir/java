@@ -1,0 +1,45 @@
+// Shape superclass
+class Shape {
+    // Method to calculate area
+    public double area() {
+        return 0; // Default implementation for demonstration purposes
+    }
+}
+
+// Circle subclass inheriting from Shape
+class Circle extends Shape {
+    // Properties
+    private double radius;
+
+    // Constructor
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    // Method to calculate area (overrides the area() method in Shape)
+    @Override
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+
+    // Method to calculate circumference
+    public double circumference() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+// Main class to demonstrate the classes
+public class ShapeCircleExample {
+    public static void main(String[] args) {
+        // Creating an instance of the Circle class
+        Circle circle = new Circle(5);
+        
+        // Calling method inherited from Shape class to calculate area
+        double circleArea = circle.area();
+        System.out.println("Area of the circle: " + circleArea);
+        
+        // Calling method specific to Circle class to calculate circumference
+        double circleCircumference = circle.circumference();
+        System.out.println("Circumference of the circle: " + circleCircumference);
+    }
+}
