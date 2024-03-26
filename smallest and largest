@@ -1,0 +1,39 @@
+public class MinMaxFinder {
+    public static void main(String[] args) {
+        int[] array = {4, 2, 7, 1, 9, 5};
+
+        int smallest = findSmallest(array);
+        int largest = findLargest(array);
+
+        System.out.println("Smallest element: " + smallest);
+        System.out.println("Largest element: " + largest);
+    }
+
+    public static int findSmallest(int[] array) {
+        if (array.length == 0) {
+            throw new IllegalArgumentException("Array must not be empty");
+        }
+
+        int smallest = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < smallest) {
+                smallest = array[i];
+            }
+        }
+        return smallest;
+    }
+
+    public static int findLargest(int[] array) {
+        if (array.length == 0) {
+            throw new IllegalArgumentException("Array must not be empty");
+        }
+
+        int largest = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > largest) {
+                largest = array[i];
+            }
+        }
+        return largest;
+    }
+}
