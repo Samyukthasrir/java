@@ -1,0 +1,49 @@
+// Person superclass
+class Person {
+    // Properties
+    protected String name;
+    protected int age;
+    
+    // Constructor
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    // Method
+    public void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+// Student subclass inheriting from Person
+class Student extends Person {
+    // Additional property
+    private String grade;
+    
+    // Constructor
+    public Student(String name, int age, String grade) {
+        super(name, age); // Call superclass constructor
+        this.grade = grade;
+    }
+    
+    // Method
+    public void displayGrade() {
+        System.out.println("Grade: " + grade);
+    }
+}
+
+// Main class to demonstrate the classes
+public class PersonStudentExample {
+    public static void main(String[] args) {
+        // Creating an instance of the Student class
+        Student student = new Student("Alice", 20, "A");
+        
+        // Calling methods inherited from Person class
+        student.displayInfo();
+        
+        // Calling method specific to Student class
+        student.displayGrade();
+    }
+}
