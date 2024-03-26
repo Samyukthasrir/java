@@ -1,0 +1,29 @@
+// Vehicle superclass
+class Vehicle {
+    // Method in the superclass
+    public void start() {
+        System.out.println("The vehicle has started.");
+    }
+}
+
+// Car subclass inheriting from Vehicle
+class Car extends Vehicle {
+    // Method in the subclass
+    public void drive() {
+        System.out.println("The car is being driven.");
+    }
+}
+
+// Main class to demonstrate the classes
+public class VehicleCarExample {
+    public static void main(String[] args) {
+        // Creating an instance of the Car class
+        Car car = new Car();
+        
+        // Calling methods inherited from Vehicle class
+        car.start(); // Output: The vehicle has started.
+        
+        // Calling method specific to Car class
+        car.drive(); // Output: The car is being driven.
+    }
+}
