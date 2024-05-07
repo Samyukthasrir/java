@@ -1,0 +1,40 @@
+import java.util.Arrays;
+
+public class TwoElementsNearZero {
+    public static void main(String[] args) {
+        int[] array = {1, 5, -10, 3, 9, -7, 2};
+
+        findElementsNearZero(array);
+    }
+
+    public static void findElementsNearZero(int[] array) {
+        Arrays.sort(array); // Sort the array
+
+        int left = 0;
+        int right = array.length - 1;
+        int minSum = Integer.MAX_VALUE;
+        int closestLeft = -1;
+        int closestRight = -1;
+
+        while (left < right) {
+            int sum = array[left] + array[right];
+            if (Math.abs(sum) < Math.abs(minSum)) {
+                minSum = sum;
+                closestLeft = left;
+                closestRight = right;
+            }
+
+            if (sum < 0) {
+                left++;
+            }
+            else if (sum > 0) {
+                right--;
+            }
+            else {
+                break;
+            }
+        }
+
+        System.out.println("Two elements whose sum is closest to zero: " + array[closestLeft] + " and " + array[closestRight]);
+    }
+}
