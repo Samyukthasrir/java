@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class SquareRoot {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a perfect square number: ");
+        int number = scanner.nextInt();
+
+        // Check if the number is a perfect square
+        int sqrt = (int) Math.sqrt(number);
+        if (sqrt * sqrt == number) {
+            System.out.println("Positive square root: " + sqrt);
+            System.out.println("Negative square root: " + (-sqrt));
+        } else {
+            System.out.println("The number entered is not a perfect square.");
+        }
+    }
+}
