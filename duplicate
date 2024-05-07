@@ -1,0 +1,36 @@
+public class DuplicateZeros {
+    public static void duplicateZeros(int[] arr) {
+        int length = arr.length;
+        int possibleDups = 0;
+
+        // Count the number of zeros to calculate the required length of the new array
+        for (int i = 0; i < length - possibleDups; i++) {
+            if (arr[i] == 0) {
+                // For each zero, we need one additional position in the array
+                possibleDups++;
+            }
+        }
+
+        // Traverse the array in reverse order and shift elements to the right
+        for (int i = length - 1; i >= 0; i--) {
+            if (i + possibleDups < length) {
+                arr[i + possibleDups] = arr[i];
+            }
+            if (arr[i] == 0) {
+                possibleDups--;
+                if (i + possibleDups < length) {
+                    arr[i + possibleDups] = 0; // Duplicate zero
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 0, 2, 3, 0, 4, 5, 0};
+        duplicateZeros(arr);
+        System.out.println("Modified array:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
