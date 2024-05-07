@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class SumOfNNN {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the value of n: ");
+        int n = scanner.nextInt();
+
+        int result = computeSumOfNNN(n);
+        System.out.println("Result: " + result);
+
+        scanner.close();
+    }
+
+    public static int computeSumOfNNN(int n) {
+        int nn = n * 10 + n; 
+        int nnn = nn * 10 + n; 
+        return n + nn + nnn; 
+    }
+}
