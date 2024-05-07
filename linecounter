@@ -1,0 +1,18 @@
+public class LineCounter {
+    public static void main(String[] args) {
+        String text = "This is a sample text.\nIt has multiple lines.\nEach line is separated by a newline character.\n";
+
+        int lineCount = countLines(text);
+
+        System.out.println("Total number of lines: " + lineCount);
+    }
+
+    public static int countLines(String text) {
+        if (text == null || text.isEmpty()) {
+            return 0;
+        }
+
+        String[] lines = text.split("\\r?\\n");
+        return lines.length;
+    }
+}
